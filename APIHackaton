@@ -1,0 +1,152 @@
+
+{
+  "swagger": "2.0",
+  "info": {
+      "title": "eCash API",
+      "description": "eCash mobile API",
+      "version": "1.3.7"
+  },
+  "host": "128.199.115.34:8960",
+  "schemes": [
+      "http"
+  ],
+  "basePath": "/emoney",
+  "paths": {
+      "/loginMember": {
+          "post": {
+              "summary": "Login",
+              "description": "This method will generate session token that would used by the rest of the API\n",
+              "consumes": [
+                  "application/x-www-form-urlencoded"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "msisdn",
+                      "in": "formData",
+                      "description": "Customer MSISDN.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "credentials",
+                      "in": "formData",
+                      "description": "Customer credentials.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "uid",
+                      "in": "formData",
+                      "description": "device UID.",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "tags": [
+                  "Login"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK"
+                  }
+              }
+          }
+      },
+      "/balanceInquiry": {
+          "post": {
+              "summary": "Balance Inquiry",
+              "description": "This method will request customer account balance\n",
+              "consumes": [
+                  "application/x-www-form-urlencoded"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "msisdn",
+                      "in": "formData",
+                      "description": "Customer MSISDN.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "credentials",
+                      "in": "formData",
+                      "description": "Customer credentials.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "token",
+                      "in": "formData",
+                      "description": "Session Token from login.",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "tags": [
+                  "Balance Inquiry"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK"
+                  }
+              }
+          }
+      },
+      "/accountHistory": {
+          "post": {
+              "summary": "Balance Inquiry",
+              "description": "This method will request customer transaction history\n",
+              "consumes": [
+                  "application/x-www-form-urlencoded"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "msisdn",
+                      "in": "formData",
+                      "description": "Customer MSISDN.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "onpage",
+                      "in": "formData",
+                      "description": "Current page.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "pagesize",
+                      "in": "formData",
+                      "description": "Max page displayed.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "token",
+                      "in": "formData",
+                      "description": "Session Token from login.",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "tags": [
+                  "Balance Inquiry"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK"
+                  }
+              }
+          }
+      }
+  }
+}
